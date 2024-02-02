@@ -218,6 +218,7 @@ public class Solution {
 -----------------------------------------------------------------------------------
 //Q10) Find missing number in an array
 //BRUTE FORCE APPROACH (BAD WAY)
+    ////Time : O(N*M)   Space: O(1)
 
   class Solution {
     public int missingNumber(int[] nums)
@@ -243,4 +244,39 @@ public class Solution {
 }
 
 //OPTIMAL APPROACH(GOOD WAY)
+//Time : O(N)   Space: O(1)
 
+class Solution {
+    public int missingNumber(int[] nums)
+    {
+        int x1=0,x2=0;
+        for(int i=0;i<nums.length;i++)
+        {
+            x1=x1^nums[i];
+            x2=x2^(i+1);
+        }        
+        return (x1^x2);
+    }
+}
+-----------------------------------------------------------------------------------
+//Q11) Find the maximun consecutive 1's
+//
+    class Solution {
+    public int findMaxConsecutiveOnes(int[] nums) {
+        int c1=0,c2=0;
+        for(int i=0;i<nums.length;i++)
+        {
+            if(nums[i]==1)
+            {
+                c1++;
+                c2=(c1>c2)?c1:c2;
+            }
+            else if(nums[i]==0)
+            {
+                c1=0;
+            }
+        }
+        return c2;
+        
+    }
+}
