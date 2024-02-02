@@ -260,7 +260,7 @@ class Solution {
 }
 -----------------------------------------------------------------------------------
 //Q11) Find the maximun consecutive 1's
-//
+//Time : O(N)   Space: O(1)
     class Solution {
     public int findMaxConsecutiveOnes(int[] nums) {
         int c1=0,c2=0;
@@ -280,3 +280,20 @@ class Solution {
         
     }
 }
+-----------------------------------------------------------------------------------------
+//Q12) Find the number that appears once and the other numbers appears twice.
+// Time : O(N)   Space : O(1)
+    class Solution 
+    {
+    public int singleNumber(int[] nums)
+    {
+        int i,x1=0;
+        for(i=0;i<nums.length;i++)
+        {
+            x1=x1^nums[i];
+        }     
+        return x1;           
+    }
+}
+--------------------------------------------------------------------------------------------
+//Q13) 
