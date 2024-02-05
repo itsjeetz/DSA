@@ -46,7 +46,7 @@ public class Solution {
        return "NO";
     }
 }
-
+------------------------------------------------------------------------------------------------------------
 //Q2) Sort array of 0's , 1's and 2's.(You can use any sorting algorithm but thats not optimal so lets see other solutions)
 // Time:  O(2N)     Space: O(1) 
 
@@ -143,6 +143,64 @@ class Solution {
         nums[j] = temp;
     }
 }
+-------------------------------------------------------------------------------------------------------------------
+//Q3)  Majority Element (>n/2 times)
+//Time : O(N*N)  Space : O(1)   ------> Brute Foroce
 
-//Q3)  
+    public class Solution {
+    public static int majorityElement(int []v) {
+        int i,j,c=0;
+
+        for(i=0;i<v.length;i++)
+        {
+            c=0;
+            for(j=0;j<v.length;j++)
+            {
+                if(v[i]==v[j])
+                {
+                    c++;
+                }
+            }
+            if(c>(v.length/2))
+                return v[i];
+        }
+        return 0;
+    }
+}
+
+//Time : O(N)+O(N)   Space : O(1) ---- Moore's Voting algorithm
+class Solution {
+    public int majorityElement(int[] nums) {
+        int ele=nums[0];
+        int c=0;
+        for(int i=0;i<nums.length;i++)
+        {
+            if(c==0)
+            {
+                c=1;
+                ele=nums[i];
+            }
+            else if(ele==nums[i])
+            {
+                c++;
+            }
+            else
+            {
+                c--;
+            }
+        }
+        int x=0;
+        for(int i=0;i<nums.length;i++)
+        {
+            if(nums[i]==ele)
+            {
+                x++;
+            }
+        }
+        if(x> nums.length/2)
+            return ele;
+
+        return 0;
+    }
+}
 
