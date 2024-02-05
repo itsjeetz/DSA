@@ -261,6 +261,60 @@ public class Solution {
 }
 
 -----------------------------------------------------------------------------------------------------------------
+//Q6) An array contains positive and negative numbers we have to arrange then in alternate manner.
+//	Eg. Input : a=[1,2,-5,5,-6,-8]  Output : a=[1,-5,2,-6,5,-8]
+// Time : O(N + N/2)  Space : O(N) ---> Brute Force.
+public class Solution {
+    public static int[] alternateNumbers(int []a)
+    {
+        int positive[]=new int[a.length/2];
+        int negatives[]=new int[a.length/2];
+        int j=0,k=0;
+        for(int i=0;i<a.length;i++)
+        {
+            if(a[i]>0)
+            {
+                positive[j]=a[i];
+                j++;
+            }
+            else
+            {
+                negatives[k]=a[i];
+                k++;
+            }
+        }
+        for(int i=0;i<positive.length;i++)
+        {
+            a[2*i]=positive[i];
+            a[2*i+1]=negatives[i];
+        }
+        return a;
+    }
+}
 
-    
+//Time : O(N)  Space : O(N)
+class Solution {
+    public int[] rearrangeArray(int[] nums) {
+        int i,p=0,n=1;
+        int arr[]=new int[nums.length];
+        for(i=0;i<nums.length;i++)
+        {
+            if(nums[i]>0)
+            {
+                arr[p]=nums[i];
+                p=p+2;
+            }
+            else if(nums[i]<0)
+            {
+                arr[n]=nums[i];
+                n=n+2;
+            }
+
+        }
+        return arr;
+    }
+}
+
+-------------------------------------------------------------------------------------------------
+
 
