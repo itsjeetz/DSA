@@ -204,3 +204,63 @@ class Solution {
     }
 }
 
+--------------------------------------------------------------------------------------------------------
+//Q4) Maximum subarray Sum.
+//Time : O(N*N)
+
+    class Solution {
+    public int maxSubArray(int[] nums) {
+        int i,j,sum=0,max=Integer.MIN_VALUE;
+		for(i=0;i<nums.length;i++)
+		{
+			sum=0;
+			for(j=i;j<nums.length;j++)
+			{
+				sum+=nums[j];
+			max= (max>sum)?max:sum;
+			}
+		}
+		return max;
+    }
+}
+
+//USING KADANE'S ALGORITHMS :
+//Time : O(N)  Space : O(1)
+
+class Solution {
+    public int maxSubArray(int[] nums) {
+        int i,sum=0,max=Integer.MIN_VALUE;
+		for(i=0;i<nums.length;i++)
+		{
+			sum+=nums[i];
+            if(sum>max)
+                max=sum;
+            if(sum<0)
+                sum=0;
+		}
+		return max;
+    }
+}
+
+--------------------------------------------------------------------------------------------------------------
+//Q5) Best time to buy and sell stocks to maximize profit.
+//Time : O(N)  Space : O(1)
+
+public class Solution {
+    public static int bestTimeToBuyAndSellStock(int []prices) {
+        int i,maxprofit=0,minvalue=prices[0];
+        for(i=0;i<prices.length;i++)
+        {
+            int cost=prices[i]-minvalue;
+            minvalue= Math.min(minvalue,prices[i]);
+            maxprofit= Math.max(maxprofit,cost);
+        }
+        return maxprofit;
+    }
+
+}
+
+-----------------------------------------------------------------------------------------------------------------
+
+    
+
