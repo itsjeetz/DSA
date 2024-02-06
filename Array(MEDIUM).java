@@ -316,5 +316,25 @@ class Solution {
 }
 
 -------------------------------------------------------------------------------------------------
+//Q7) Leaders in an array. A leader is that element in an array whose all elements to the right of that
+//	element is smaller than that element.The last element is always condiderd as a leader.
 
+// Time : O(N) Space : O(N)
+import java.util.*;
+public class Solution {
+    public static List< Integer > superiorElements(int []a) {
+        int i,j,max=a[a.length-1];
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(max);
+        for(i=a.length-2;i>=0;i--)
+        {
+            if(a[i]>max)
+            {
+                list.add(a[i]);
+                max=a[i];
+            }
+        }
+        return list;
+    }
+}
 
