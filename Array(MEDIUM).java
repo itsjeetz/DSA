@@ -424,4 +424,41 @@ vector<vector<int>> zeroMatrix(vector<vector<int>> &matrix, int n, int m)
 }
 
 -----------------------------------------------------------------------------------------------------
-//Q9) 
+//Q9) Rotate Matrix by 90 degrees 
+//	 111	  261
+//  A =	 623  --> 521
+//	 258	  831
+
+//Time : O(2*N*N)  Space : O(1)
+
+	import java.util.*;
+public class Solution {
+    public static void rotateMatrix(int [][]mat){
+        int i,j;
+        for(i=0;i<mat.length-1;i++)
+        {
+            for(j=i+1;j<mat.length;j++)
+            {
+                if(i!=j)
+                {
+                    mat[i][j]=mat[i][j]^mat[j][i];
+                    mat[j][i]=mat[i][j]^mat[j][i];
+                    mat[i][j]=mat[i][j]^mat[j][i];
+                }
+            }
+        }
+
+        for(i=0;i<mat.length;i++)
+        {
+            for(j=0;j<mat.length/2;j++)
+            {
+                    mat[i][j]=mat[i][j]^mat[i][mat.length-1-j];
+                    mat[i][mat.length-1-j]=mat[i][j]^mat[i][mat.length-1-j];
+                    mat[i][j]=mat[i][j]^mat[i][mat.length-1-j];
+            }
+        }
+    }
+}
+
+-----------------------------------------------------------------------------------------------------
+//Q10) 
