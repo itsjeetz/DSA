@@ -461,4 +461,30 @@ public class Solution {
 }
 
 -----------------------------------------------------------------------------------------------------
-//Q10) 
+//Q10) Count the number of subarrays with sum k.
+//Time : O(N)  Space : O(N)
+
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+    public static int findAllSubarraysWithGivenSum(int arr[], int s) {
+        HashMap<Integer,Integer> mpp = new HashMap<>();
+        int prefixsum=0,c=0,i;
+        for(i=0;i<arr.length;i++)
+        {
+            prefixsum +=arr[i];
+            mpp.put(prefixsum,i);
+            if(mpp.containsKey(prefixsum-s))
+            {
+                c++;
+            }
+            else if(mpp.containsKey(s) && prefixsum<=s)
+            {
+                c++;
+            }
+        }    
+        return c;
+    }
+}
+
+---------------------------------------------------------------------------------------------------------
